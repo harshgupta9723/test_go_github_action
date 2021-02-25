@@ -45,6 +45,8 @@ jobs:
     - name: gh release
       run: gh release create v0.2.6 -n test911  main
 
+    - name: auth login
+      run: gh auth login --hostname harshgupta9723
 
     - name: upload-script
       env:
