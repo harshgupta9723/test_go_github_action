@@ -41,6 +41,9 @@ jobs:
       run: sudo apt-get clean
 
     - name: go build
+      env:
+					  GOPROXY: "https://proxy.golang.org"
+            
       run: go build -o main
 
     - name: gh release
