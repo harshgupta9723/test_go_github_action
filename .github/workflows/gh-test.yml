@@ -42,9 +42,6 @@ jobs:
     - name: go build
       run: go build -o main
 
-    - name: auth
-      run: gh auth login -h --with-token < gh_auth_token.txt
-
     - name: gh release
       run: gh release create v0.2.6 -n test911  main
 
