@@ -1,0 +1,29 @@
+name: Publish
+
+on:
+  push:
+
+jobs:
+  build:
+    name: Publish binaries
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.15
+    - name: go mod
+      run: go mod init tutree-html-description-fixer
+    - name: Build
+      run:  go build -o test
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.SECRET_KEY }}
+        file: test
+        asset_name: test
+        tag: ${{ github.ref }}
+        overwrite: true
+        body: "This is my release text"
