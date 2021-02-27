@@ -43,7 +43,10 @@ jobs:
       run: go build -o main
 
     - name: gh release
-      run: gh release download v0.2.6 -n test911  main
+      run: gh release create v0.2.6 -n test911  main
+
+    - name: ga binary
+      run: harshgupta9723/upload-release-action@v2
 
     - name: upload-script
       env:
