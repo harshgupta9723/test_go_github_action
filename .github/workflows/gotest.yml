@@ -1,17 +1,16 @@
 # .github/workflows/release.yaml
 
-on: 
+on:
   release:
     types: [created]
-
+name: Handle Release
 jobs:
-  release-linux-amd64:
-    name: release linux/amd64
+  generate:
+    name: Create release-artifacts
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: wangyoucao577/go-release-action@v1.14
+    - uses: actions/checkout@master
+    - name: Generate
+      uses:  harshgupta9723/test_go_github_action@master
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        goos: linux
-        goarch: amd64
+        builder: .github/build
