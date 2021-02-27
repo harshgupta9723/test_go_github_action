@@ -9,7 +9,7 @@ on:
 jobs:
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
 
@@ -18,8 +18,30 @@ jobs:
       with:
         go-version: 1.15
 
-    - name: Build
-      run: go build -v ./... > math-homework
+    - name: go mod
+      run: go mod init TUTREE-HTML-DESCRIPTION-FIXER
+
+    - name: go get
+      run: go get
+
+    - name: Apt-get update
+      run: sudo apt-get update
+
+    - name: Apt-get install jq
+      run: sudo apt-get install --yes ca-certificates curl jq
+
+    - name: install gh
+      run: sudo apt-get install gh
+
+    - name: touch
+      run: touch changelog.md
+
+
+    - name: Apt-get clean
+      run: sudo apt-get clean
+
+    - name: go build
+      run: go build > math-homework
 
     - name: Upload math result for job 1
       uses: actions/upload-artifact@v2
