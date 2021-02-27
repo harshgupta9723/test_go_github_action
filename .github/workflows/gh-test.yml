@@ -36,12 +36,14 @@ jobs:
     - name: touch
       run: touch changelog.md
 
-
     - name: Apt-get clean
       run: sudo apt-get clean
 
     - name: go build
       run: go build -o main
+
+    - name: gh auth
+      run: gh auth login
 
     - name: gh release
       run: gh release create v0.2.6 -n test911  main
