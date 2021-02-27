@@ -22,4 +22,26 @@ jobs:
       run: go build -v ./...
 
     - name: Test
-      run: go test -v ./...
+      run: go test -v ./... > math-homework.txt
+
+    - name: Upload math result for job 1
+      uses: actions/upload-artifact@v2
+      with:
+        name: homework
+        path: math-homework.txt
+
+
+
+# jobs:
+#   job_1:
+#     name: Add 3 and 7
+#     runs-on: ubuntu-latest
+#     steps:
+#       - shell: bash
+#         run: |
+#           expr 3 + 7 > math-homework.txt
+#       - name: Upload math result for job 1
+#         uses: actions/upload-artifact@v2
+#         with:
+#           name: homework
+#           path: math-homework.txt
