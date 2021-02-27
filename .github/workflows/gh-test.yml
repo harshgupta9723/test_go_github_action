@@ -46,8 +46,8 @@ jobs:
     - name: gh auth
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN}}
-        
-      run: gh auth login -h enterprise.internal --with-token GITHUB_TOKEN
+
+      run: gh auth login --with-token GITHUB_TOKEN
 
     - name: gh release
       run: gh release create v0.2.6 -n test911  main
