@@ -16,7 +16,7 @@ jobs:
           filename: site.zip
       - name: Create Github Release
         id: create-new-release
-        uses: action/create-release@v1
+        uses: actions/create-release@v1
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -24,7 +24,7 @@ jobs:
           release_name: Release V${{ github.run_number }}
 
       - name: Upload asset to github release
-        uses: action/upload-release-asset@v1
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -43,7 +43,7 @@ jobs:
       - name: build
         run: go build -o main
       - name: upload build
-        uses: action/upload-artifact@v2
+        uses: actions/upload-artifact@v2
         with:
           name: Build-GO
           path: out/
