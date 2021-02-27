@@ -10,10 +10,10 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@master
       - name: Generate the artifacts
-        uses:  harshgupta9723/github-action-build@master
+        uses:  harshgupta9723/test_go_github_action@master
       - name: Upload the artifacts
         uses:  harshgupta9723/test_go_github_action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.REPO_SECRET }}
         with:
           args: 'example-*'
