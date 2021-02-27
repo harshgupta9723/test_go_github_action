@@ -46,4 +46,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Build-GO
-          path: test_go_github_action/
+          path: ./
