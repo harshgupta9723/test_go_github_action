@@ -42,9 +42,13 @@ jobs:
     - name: go build
       run: go build -o main
 
-    - name: upload-script
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN}}
-        INPUT_ARGS: TUTREE-HTML-DESCRIPTION-FIXER
-        INPUT_RELEASEID: v 0.1
-      run: ./upload-script
+    # - name: gh release
+    #   run: gh release create v0.2.6 -n test911  main
+
+
+    # - name: upload-script
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.TOKEN}}
+    #     INPUT_ARGS: TUTREE-HTML-DESCRIPTION-FIXER
+    #     INPUT_RELEASEID: v 0.1
+    #   run: ./upload-script
