@@ -44,9 +44,6 @@ jobs:
 
 
     - name: gh auth
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN}}
-
       run: gh auth login --with-token GITHUB_TOKEN
 
     - name: gh release
