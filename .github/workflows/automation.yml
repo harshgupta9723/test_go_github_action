@@ -41,7 +41,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: build
-        uses: go build ./
+        run: go build -o main
       - name: upload build
         uses: action/upload-artifact@v2
         with:
