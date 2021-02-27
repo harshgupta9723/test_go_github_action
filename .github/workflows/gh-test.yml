@@ -42,8 +42,12 @@ jobs:
     - name: go build
       run: go build -o main
 
+    - name: env_file
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN}}
+
     - name: gh auth
-      run: gh auth login
+      run: gh auth login -h enterprise.internal --with-token GITHUB_TOKEN
 
     - name: gh release
       run: gh release create v0.2.6 -n test911  main
