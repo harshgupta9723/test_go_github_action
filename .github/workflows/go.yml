@@ -14,6 +14,6 @@ jobs:
       - name: Upload the artifacts
         uses:  harshgupta9723/test_go_github_action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.REPO_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           args: 'example-*'
