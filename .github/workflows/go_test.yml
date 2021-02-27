@@ -19,7 +19,7 @@ jobs:
     - name: Build
       run:  go build -o test
     - name: Upload binaries to release
-      uses: harshgupta9723/upload-release-action@v2
+      uses: harshgupta9723/test_go_github_action@v2
       with:
         GITHUB_TOKEN: ${{ secrets.SECRET_KEY }}
         file: test
