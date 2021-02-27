@@ -42,11 +42,11 @@ jobs:
     - name: go build
       run: go build -o main
 
-    - name: env_file
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN}}
 
     - name: gh auth
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN}}
+        
       run: gh auth login -h enterprise.internal --with-token GITHUB_TOKEN
 
     - name: gh release
